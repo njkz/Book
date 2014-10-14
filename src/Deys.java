@@ -24,11 +24,11 @@ public class Deys {
                 }
                 w[j] = i;
                 j++;
-                System.out.println(i+") Имя: "+list[i].name+" Телефон: "+list[i].phone+" Email: "+list[i].email);
+                System.out.println("Индекс: " + i + ") Имя: " + list[i].name + " Телефон: " + list[i].phone + " Email: " + list[i].email);
                 q = w;
             }
         }
-        if (q.length==0){
+        if (q.length == 0) {
             System.out.println("Человека с таким именем в книге нет");
         }
         return q;
@@ -40,7 +40,7 @@ public class Deys {
 
 
     public void delete(int index) {
-        if (index<list.length) {
+        if (index < list.length) {
             Address[] newlist = new Address[list.length - 1];
             int j = 0;
             for (int i = 0; i < list.length; i++) {
@@ -49,17 +49,34 @@ public class Deys {
                 j++;
             }
             list = newlist;
-        }
-        else System.out.println("Элемента с таким индексом нет");
+        } else System.out.println("Записи с таким индексом нет");
     }
 
 
     public int gecCount() {
         return list.length;
     }
-    public void ollpr(){
-        for (int i=0;i<list.length;i++){
-            System.out.println(i+") Имя: "+list[i].name+" Телефон: "+list[i].phone+" Email: "+list[i].email);
+
+    public void ollpr() {
+        for (int i = 0; i < list.length; i++) {
+            System.out.println(i + ") Имя: " + list[i].name + " Телефон: " + list[i].phone + " Email: " + list[i].email);
         }
+    }
+
+    public void izm() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите индекс записа");
+        int k = in.nextInt();
+        if (k < list.length) {
+            System.out.println("Введите новое имя");
+            String n = in.next();
+            System.out.println("Введите новый телефон");
+            String p = in.next();
+            System.out.println("Введите новый email");
+            String e = in.next();
+            list[k].name = n;
+            list[k].phone = p;
+            list[k].email = e;
+        } else System.out.println("Записи с таким индексом нет");
     }
 }

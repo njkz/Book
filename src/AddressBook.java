@@ -1,6 +1,7 @@
 /**
  * Created by Admin on 14.10.14.
  */
+
 import java.util.Scanner;
 
 public class AddressBook {
@@ -16,7 +17,8 @@ public class AddressBook {
             System.out.println("5: Удаление записи из книги по индексу");
             System.out.println("6: Получение количества записей в книге");
             System.out.println("7: Вывод всей книги");
-            System.out.println("8: Выход");
+            System.out.println("8: Изменение записи по её индексу");
+            System.out.println("9: Выход");
             System.out.print("Введите номер необходимого действия: ");
             int k = in.nextInt();
 
@@ -40,8 +42,10 @@ public class AddressBook {
                 case 3:
                     System.out.println("Введите индекс записи для поиска");
                     int r = in.nextInt();
-                    if (r < book.list.length){Address s = book.get(r); System.out.println(s.name+" "+s.phone+" "+s.email);}
-                    else System.out.println("Элемента с таким индексом нет");
+                    if (r < book.list.length) {
+                        Address s = book.get(r);
+                        System.out.println(s.name + " " + s.phone + " " + s.email);
+                    } else System.out.println("Элемента с таким индексом нет");
                     continue;
                 case 4:
                     continue;
@@ -51,14 +55,18 @@ public class AddressBook {
                     book.delete(y);
                     continue;
                 case 6:
-                    if (book.gecCount()==1)System.out.println("В адресной книге "+book.gecCount()+" запись");
-                    else if (book.gecCount()==2||book.gecCount()==3||book.gecCount()==4) System.out.println("В адресной книге "+book.gecCount()+" записи");
-                    else System.out.println("В адресной книге "+book.gecCount()+" записей");
+                    if (book.gecCount() == 1) System.out.println("В адресной книге " + book.gecCount() + " запись");
+                    else if (book.gecCount() == 2 || book.gecCount() == 3 || book.gecCount() == 4)
+                        System.out.println("В адресной книге " + book.gecCount() + " записи");
+                    else System.out.println("В адресной книге " + book.gecCount() + " записей");
                     continue;
                 case 7:
                     book.ollpr();
                     continue;
                 case 8:
+                    book.izm();
+                    continue;
+                case 9:
                     System.exit(1);
                     break;
                 default:
