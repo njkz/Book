@@ -17,20 +17,19 @@ public class Deys {
     public int[] find(String name) {
         int j = 0;
         for (int i = 0; i < list.length; i++) {
-            if (list[i].name == name) {
+            if (list[i].name.equals(name)) {
                 int[] w = new int[q.length + 1];
                 for (int k = 0; k < q.length; k++) {
                     w[k] = q[k];
                 }
                 w[j] = i;
                 j++;
+                System.out.println(i+") Имя: "+list[i].name+" Телефон: "+list[i].phone+" Email: "+list[i].email);
                 q = w;
-                System.out.println(w.length);
             }
         }
         if (q.length==0){
             System.out.println("Человека с таким именем в книге нет");
-            System.out.println(q.length);
         }
         return q;
     }
@@ -57,5 +56,10 @@ public class Deys {
 
     public int gecCount() {
         return list.length;
+    }
+    public void ollpr(){
+        for (int i=0;i<list.length;i++){
+            System.out.println(i+") Имя: "+list[i].name+" Телефон: "+list[i].phone+" Email: "+list[i].email);
+        }
     }
 }
