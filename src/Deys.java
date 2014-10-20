@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.Scanner;
 
 
@@ -59,8 +61,10 @@ public class Deys {
 
     public void ollpr() {
         for (int i = 0; i < list.length; i++) {
-            System.out.println(i + ") Имя: " + list[i].name + " Телефон: " + list[i].phone + " Email: " + list[i].email);
+           // System.out.println(i + ") Имя: " + list[i].name + " Телефон: " + list[i].phone + " Email: " + list[i].email);
+            System.out.print(i+") ");print(list[i]);
         }
+
     }
 
     public void izm() {
@@ -78,5 +82,8 @@ public class Deys {
             list[k].phone = p;
             list[k].email = e;
         } else System.out.println("Записи с таким индексом нет");
+    }
+    public void print (Address adr){
+        System.out.println("Имя: " + adr.name + " Телефон: " + adr.phone + " Email: " + adr.email);
     }
 }
