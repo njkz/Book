@@ -30,18 +30,27 @@ public class AddressBook {
                     System.out.println("Введите email");
                     String e = in.next();
                     Address a = new Address(n, p, e);
-                    book.Add(a);
+                    book.add(a);
 
                     continue;
                 case 2:
                     System.out.println("Введите имя для поиска");
                     String q = in.next();
                     int[] dex = book.find(q);
+                    if (dex.length == 0) {
+                        System.out.println("Человека с таким именем в книге нет");
+                    } else {
+                        for (int i = 0; i < dex.length; i++) {
+                            Address address = book.get(dex[i]);
+                            book.print(address);
+                        }
+                    }
+                    //
                     continue;
                 case 3:
                     System.out.println("Введите индекс записи для поиска");
                     int r = in.nextInt();
-                    if (r < book.list.length) {
+                    if (r < book.gecCount()) {
                         Address s = book.get(r);
                         System.out.println(s.name + " " + s.phone + " " + s.email);
                     } else System.out.println("Элемента с таким индексом нет");
@@ -49,7 +58,9 @@ public class AddressBook {
                 case 4:
                     System.out.println("Введите индекс записи для удаления");
                     int y = in.nextInt();
+                    if (y < book.gecCount() && y>-1) {
                     book.delete(y);
+                    } else System.out.println("Записи с таким индексом нет");
                     continue;
                 case 5:
                     if (book.gecCount() == 1) System.out.println("В адресной книге " + book.gecCount() + " запись");
@@ -61,7 +72,18 @@ public class AddressBook {
                     book.ollpr();
                     continue;
                 case 7:
-                    book.izm();
+                    System.out.println("Введите индекс записа");
+                    int pro = in.nextInt();
+                    if (pro < book.gecCount()) {
+                        System.out.println("Введите новое имя");
+                        String no = in.next();
+                        System.out.println("Введите новый телефон");
+                        String po = in.next();
+                        System.out.println("Введите новый email");
+                        String eo = in.next();
+                        book.izm(pro,no, po ,eo);
+                    } else System.out.println("Записи с таким индексом нет");
+
                     continue;
                 case 8:
                     System.exit(1);

@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 
 public class Deys {
-    public Address[] list = new Address[0];
-    public int[] q = new int[0];
+    private Address[] list = new Address[0];
+    //public int[] q = new int[0];
 
-    public void Add(Address newa) {
+    public void add(Address newa) {
         Address[] newlist = new Address[list.length + 1];
         for (int i = 0; i < list.length; i++) {
             newlist[i] = list[i];
@@ -18,6 +18,7 @@ public class Deys {
 
     public int[] find(String name) {
         int j = 0;
+        int[] q = new int[0];
         for (int i = 0; i < list.length; i++) {
             if (list[i].name.equals(name)) {
                 int[] w = new int[q.length + 1];
@@ -26,13 +27,13 @@ public class Deys {
                 }
                 w[j] = i;
                 j++;
-                System.out.println("Индекс: " + i + ") Имя: " + list[i].name + " Телефон: " + list[i].phone + " Email: " + list[i].email);
+                //System.out.println("Индекс: " + i + ") Имя: " + list[i].name + " Телефон: " + list[i].phone + " Email: " + list[i].email);
                 q = w;
             }
         }
-        if (q.length == 0) {
-            System.out.println("Человека с таким именем в книге нет");
-        }
+//        if (q.length == 0) {
+//            System.out.println("Человека с таким именем в книге нет");
+//        }
         return q;
     }
 
@@ -42,7 +43,6 @@ public class Deys {
 
 
     public void delete(int index) {
-        if (index < list.length) {
             Address[] newlist = new Address[list.length - 1];
             int j = 0;
             for (int i = 0; i < list.length; i++) {
@@ -51,7 +51,7 @@ public class Deys {
                 j++;
             }
             list = newlist;
-        } else System.out.println("Записи с таким индексом нет");
+
     }
 
 
@@ -67,21 +67,11 @@ public class Deys {
 
     }
 
-    public void izm() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите индекс записа");
-        int k = in.nextInt();
-        if (k < list.length) {
-            System.out.println("Введите новое имя");
-            String n = in.next();
-            System.out.println("Введите новый телефон");
-            String p = in.next();
-            System.out.println("Введите новый email");
-            String e = in.next();
-            list[k].name = n;
-            list[k].phone = p;
-            list[k].email = e;
-        } else System.out.println("Записи с таким индексом нет");
+    public void izm(int k, String no, String po, String eo) {
+            list[k].name = no;
+            list[k].phone = po;
+            list[k].email = eo;
+
     }
     public void print (Address adr){
         System.out.println("Имя: " + adr.name + " Телефон: " + adr.phone + " Email: " + adr.email);
